@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Affinity App Portugal</title>
+    
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="css/jquery.mobile.icons-1.4.5.min.css">
+    <link rel="stylesheet" href="fonts/supernettcn.css">
+    <link rel="stylesheet" href="fonts/brandon-regular.css">
+    <link rel="stylesheet" href="fonts/brandon-medium.css">
+    <link rel="stylesheet" href="css/datepicker.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body>
+<div class="mobile-container">
+    <!-- Start of first page -->
+    <div data-role="page" id="homepage" data-position="fixed">
+        <div data-role="content" id="ctn">          
+           <div class="container"> 
+               <div class="login__wrap">
+                  <img class="responsive" src="img/logo-instinct.png" alt="logo instinct">
+                   
+                       <h2>BEM-VINDO</h2>
+                       <label for="usuario" class="login__label">Nome do usuário</label>
+                       <input class="login__txt" id="usuario" type="text" name="nomlogin" placeholder="Nom">
+                       <!-- <button class="btn btn-cafe">OK</button> -->
+                       <a class="btn btn-cafe btn-100 js-login" href="#selector">OK</a>
+                  
+               </div>
+                <div id="deviceProperties"></div>
+                <div data-role="popup" id="popupLogin1">
+                    <h4>Erro</h4>
+	                <p>Por favor insira um usuário<p>
+                </div>
+                
+                <div data-role="popup" id="popupLogin2">
+                    <h4>Erro</h4>
+	                <p>Usuário incorreto<p>
+                </div>
+            </div>
+        </div>
+        <!-- /content -->
+    </div>
+    <!-- /page -->
+    
+    <!-- Start of second page -->
+    <div data-role="page" id="selector" data-position="fixed">
+        <div data-role="content" id="ctn">          
+           <div class="container"> 
+               <div class="login__wrap">
+                  <img class="responsive" src="img/logo-instinct.png" alt="logo instinct">
+                  <br><br>
+                   <a href="#suivi" class="btn btn-naranja btn-100">Rastreamento de atividade</a>
+                   <br><br>
+                   <a href="#chienouchat" class="btn btn-verde btn-100 js-menucontacts">Contacto consumidor</a>
+                   <div class="alert alert-danger js-menucontactsalert">Insira uma atividade primeiro</div>
+                   <br>
+                   <br>                   
+                   <a href="#" class="btn btn-cafe btn-80 js-cerrarsesion">Fechar sessão</a>
+                   <br/>
+                   <div id="js-sync" class="align-center">
+                       <span>0</span> usuários não sincronizados. <a href="#voircontacts">Exibir contatos</a> | <a href="#syncro">Sincronizar agora</a>
+                    </div>
+               </div>
+                <div id="js-messages"></div>                
+            </div>
+        </div>
+        <!-- /content -->
+    </div>
+    <!-- /page -->
+    
+    <!-- Start of third page -->
+    <div data-role="page" id="suivi" data-position="fixed">
+       <div data-role="header">
+           <div class="container-fluid">
+               <div class="row">
+                   <div class="col-md-6">
+                       <a class="header__link" href="#selector"><-</a>
+                   </div>
+                   <div class="col-md-6 align-right">
+                       <h2>Iniciar atividade</h2>
+                    </div>
+               </div>
+           </div>
+        </div><!--header-->
+        
+        <div data-role="content" id="ctn">  
+          <form method="post" id="submitForm" enctype="multipart/form-data" action="http://actimundi.com/affinitypor/backend/upload.php"  autocomplete="off">
+           <div class="container">               
+               <div class="row">
+                   <div class="col-md-6">
+                       <div class="row">
+                           <div class="col-md-8">
+                               <label for="date">Data</label>
+                               <input data-toggle="datepicker" id="date" name="date" type="text" />
+                           </div>
+                           <div class="col-md-4">
+                               <label for="heure">Hora</label>
+                               <!-- <input id="heure" name="heure" type="text" /> -->
+                               <select name="heure" id="heure">
+                                   <option value="00:00">00:00</option>
+                                   <option value="00:30">00:30</option>
+                                   <option value="01:00">01:00</option>
+                                   <option value="01:30">01:30</option>
+                                   <option value="02:00">02:00</option>
+                                   <option value="02:30">02:30</option>
+                                   <option value="03:00">03:00</option>
+                                   <option value="03:30">03:30</option>
+                                   <option value="04:00">04:00</option>
+                                   <option value="04:30">04:30</option>
+                                   <option value="05:00">05:00</option>
+                                   <option value="05:30">05:30</option>
+                                   <option value="06:00">06:00</option>
+                                   <option value="06:30">06:30</option>
+                                   <option value="07:00">07:00</option>
+                                   <option value="07:30">07:30</option>
+                                   <option value="08:00">08:00</option>
+                                   <option value="08:30">08:30</option>
+                                   <option value="09:00">09:00</option>
+                                   <option value="09:30">09:30</option>
+                                   <option value="10:00">10:00</option>
+                                   <option value="10:30">10:30</option>
+                                   <option value="11:00">11:00</option>
+                                   <option value="11:30">11:30</option>
+                                   <option value="12:00">12:00</option>
+                                   <option value="12:30">12:30</option>
+                                   <option value="13:00">13:00</option>
+                                   <option value="13:30">13:30</option>
+                                   <option value="14:00">14:00</option>
+                                   <option value="14:30">14:30</option>
+                                   <option value="15:00">15:00</option>
+                                   <option value="15:30">15:30</option>
+                                   <option value="16:00">16:00</option>
+                                   <option value="16:30">16:30</option>
+                                   <option value="17:00">17:00</option>
+                                   <option value="17:30">17:30</option>
+                                   <option value="18:00">18:00</option>
+                                   <option value="18:30">18:30</option>
+                                   <option value="19:00">19:00</option>
+                                   <option value="19:30">19:30</option>
+                                   <option value="20:00">20:00</option>
+                                   <option value="20:30">20:30</option>
+                                   <option value="21:00">21:00</option>
+                                   <option value="21:30">21:30</option>
+                                   <option value="22:00">22:00</option>
+                                   <option value="22:30">22:30</option>
+                                   <option value="23:00">23:00</option>
+                                   <option value="23:30">23:30</option>
+                               </select>
+                           </div>
+                       </div><!--row-->
+                       
+                       
+                       <div class="row">
+                           <div class="col-md-12">
+                               <label>Tipo de ativação</label>
+                               <div class="row row--activation">
+                                   <div class="col-md-4 col-bus">
+                                       <input class="js-radio js-typea" type="radio" id="tactivation1" name="tactivation" value="bus">
+                                       <label for="tactivation1">
+                                          <img src="img/bus.jpg" alt="bus">
+                                      </label>
+                                   </div>
+                                   
+                                   <div class="col-md-4 col-van">
+                                       <input class="js-radio js-typea" type="radio" id="tactivation2" name="tactivation" value="space tourer">
+                                       <label for="tactivation2">
+                                          <img src="img/van.jpg" alt="van">
+                                      </label>
+                                   </div>
+                                   
+                                   <div class="col-md-4 col-carrito">
+                                       <input class="js-radio js-typea" type="radio" id="tactivation3" name="tactivation" value="carrito">
+                                       <label for="tactivation3">
+                                          <img src="img/carrito.jpg" alt="carrito">
+                                      </label>
+                                   </div>
+                               </div>
+                           </div>
+                       </div><!--row-->
+                       <br>
+                       <br>
+                       
+                       <div class="row">
+                          <div class="col-md-12">
+                               <label for="dactivation">Local de ativação</label>
+                               <select name="dactivation" id="dactivation">
+                                   <option value="">Escolha um tipo de ativação</option>
+                               </select>
+                           </div>
+                           
+                       </div><!--row-->
+                       
+                       
+                       
+                       <div class="row row--uploader">
+                           <div class="col-md-12">
+                               <label>Fotografias do dia</label>
+                               <a class="btn btn-grey js-uploadphoto" href="#"><span>+</span> Fotos</a>
+                               <input type="file" id="pro-image" name="images[]" class="form-control" multiple>
+                           </div>
+                       </div><!--row-->
+                       
+                       <div class="row preview-images-zone ">
+                           
+                       </div><!--row-->
+                       <div id="status"></div>
+           
+                   </div><!--md-6-->
+                   
+                   <div class="col-md-1">
+                   
+                   </div>
+                   
+                   <div class="col-md-5">
+                       <label for="incidentes">Incidentes</label>
+                       <textarea name="incidentes" id="incidentes" cols="30" rows="50"></textarea>
+                       <!--
+                       <a class="btn btn-aceptar js-aceptar-debut disabled" href="#">OK</a>
+                       -->
+                       <input type="hidden" name="usuario" id="js-usuario">
+                       <input type="submit" name="submit" class="btn btn-aceptar js-aceptar-debut disabled" value="OK" />
+                   </div><!--md-6-->
+               </div><!--row-->               
+               
+               <div data-role="popup" id="popupdebut">
+                    <h4>Êxito</h4>
+	                <p>Dados salvos<p>
+                </div>
+            </div><!--container-->
+            </form>        
+        </div>
+        <!-- /content -->
+    </div>
+    <!-- /page -->
+    
+    
+    <!-- Start of fourth page -->
+    <div data-role="page" id="chienouchat" data-position="fixed">
+       <div data-role="header">
+           <div class="container-fluid">
+               <div class="row">
+                   <div class="col-md-6">
+                       <a class="header__link" href="#selector"><-</a>
+                   </div>
+                   <div class="col-md-6 align-right">
+                       <h2>CONTACTO CONSUMIDOR</h2>
+                    </div>
+               </div>
+           </div>
+        </div><!--header-->
+        
+        <div data-role="content" id="ctn">          
+           <div class="container"> 
+               <div class="row">
+                   <div class="col-md-2">
+                       <label for="chienouchatprenom">Primeiro nome **</label>
+                       <input type="text" id="chienouchatprenom" name="chienouchatprenom">
+                   </div>
+                   <div class="col-md-2">
+                       <label for="chienouchatnom">Nome **</label>
+                       <input type="text" id="chienouchatnom" name="chienouchatnom">
+                   </div>
+                   <div class="col-md-2">
+                       <label for="chienouchatgenre">Género **</label>
+                       <select name="chienouchatgenre" id="chienouchatgenre">
+                           <option value="Female">Mulher</option>
+                           <option value="Male">Homem</option>
+                       </select>
+                   </div>
+                   <div class="col-md-2">
+                       <label for="chienouchatcodepostal">Código postal</label>
+                       <input type="text" id="chienouchatcodepostal" name="chienouchatcodepostal">
+                   </div>
+                   <div class="col-md-2">
+                       <label for="chienouchattelephone">Telefone</label>
+                       <input type="text" id="chienouchattelephone" name="chienouchattelephone">
+                   </div>
+                   <div class="col-md-2">
+                       <label for="chienouchatemail">Email **</label>
+                       <input type="text" id="chienouchatemail" name="chienouchatemail">
+                   </div>
+               </div><!--row-->
+               
+               <div class="mascota__tipo">
+               <div class="row">
+                   <div class="col-md-8">
+                      <div class="mascota__tipo__left">
+                      <div class="mascota__chienouchat">
+                       <h3>Cão ou gato **</h3>
+                       <div class="row">
+                           <div class="col-md-6">
+                               <label for="pet1">
+                                   <img class="pet__perro" src="img/perro.svg" alt="chien">
+                               </label>
+                               <input type="radio" class="js-chienouchat" id="pet1" name="pet" value="chien">
+                           </div>
+                           <div class="col-md-6">
+                               <label for="pet2">
+                                   <img class="pet__gato" src="img/gato.svg" alt="chat">
+                               </label>
+                               <input type="radio" class="js-chienouchat" id="pet2" name="pet" value="chat">
+                           </div>
+                       </div><!--row-->
+                       </div><!--mascota__chienouchat-->
+                       
+                       <div class="mascota__perro">
+                           <div class="row">
+                                <div class="col-md-6">
+                                    <label for="nomanimalp">Nome do animal **</label>
+                                    <input type="text" id="nomanimalp" name="nomanimalp">
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <label>Género do animal</label>
+                                    <div class="row row--genre">
+                                        <div class="col-md-6">                                        
+                                        <label for="genre1">
+                                           <img class="pet__venus" src="img/venus.svg" alt="venus">
+                                       </label>
+                                       <input type="radio" id="genre1" name="genrep" value="female" checked="checked">
+                                       </div>
+                                       <div class="col-md-6">
+                                        <label for="genre2">
+                                           <img class="pet__marte" src="img/marte.svg" alt="marte">
+                                       </label>
+                                       <input type="radio" id="genre2" name="genrep" value="male">
+                                       </div>
+                                   </div><!--row-->
+                                </div><!--col-->
+                                
+                                <div class="col-md-6">
+                                    <label for="taille">Tamanho</label>
+                                    <div class="row row--taille">
+                                        <div class="col-md-4">
+                                            <label for="taille1">
+                                                <img class="pet__perro pet__perro--s" src="img/perro.svg" alt="chien">
+                                            </label>
+                                            <input type="radio" id="taille1" name="taillep" value="mini" checked="checked">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="taille2">
+                                                <img class="pet__perro pet__perro--m" src="img/perro.svg" alt="chien">
+                                            </label>
+                                            <input type="radio" id="taille2" name="taillep" value="medium">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="taille3">
+                                                <img class="pet__perro" src="img/perro.svg" alt="chien">
+                                            </label>
+                                            <input type="radio" id="taille3" name="taillep" value="max">
+                                        </div>
+                                    </div><!--row-->
+                                    <br>
+                                    <label for="poids">Peso**</label>
+                                    <div class="row">
+                                        <div class="col-md-6">                                           
+                                            <input type="text" id="poidsp" name="poidsp">
+                                        </div>
+                                        <div class="col-md-6">
+                                             Kgr
+                                        </div>
+                                    </div><!--row-->
+                                    <br>
+                                    <label for="race">Raça</label>
+                                       <select name="racep" id="racep" class="js-comboautres">
+                                           <option value="Beagle">Beagle</option>
+                                           <option value="Berger australien">Berger australien</option>
+                                           <option value="Berger Belge Malinois">Berger Belge Malinois</option>
+                                           <option value="Berger de beauce">Berger de beauce</option>
+                                           <option value="Bouledogue Français">Bouledogue Français</option>
+                                           <option value="Bouvier Bernois">Bouvier Bernois</option>
+                                           <option value="Cavalier King Charles">Cavalier King Charles</option>
+                                           <option value="Chihuahua">Chihuahua</option>
+                                           <option value="Cocker Anglais">Cocker Anglais</option>
+                                           <option value="Epagneul Breton">Epagneul Breton</option>
+                                           <option value="Golden Retriever">Golden Retriever</option>
+                                           <option value="Jack Russel">Jack Russel</option>
+                                           <option value="Labrador retriever">Labrador retriever</option>
+                                           <option value="Setter Anglais">Setter Anglais</option>
+                                           <option value="Shih Tzu">Shih Tzu</option>
+                                           <option value="Staffordshire Bull Terrier">Staffordshire Bull Terrier</option>
+                                           <option value="Staffordshire Terrier Américain">Staffordshire Terrier Américain</option>
+                                           <option value="Teckel">Teckel</option>
+                                           <option value="Yorkshire Terrier">Yorkshire Terrier</option>
+                                           <option value="Autres">Autres</option>
+                                       </select>
+                                </div>
+                            </div><!--row-->
+                        </div><!--mascota__perro-->
+                        
+                        <div class="mascota__gato">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="nomanimalg">Nome do animal **</label>
+                                    <input type="text" id="nomanimalg" name="nomanimalg">
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <label>Género do animal</label>
+                                    <div class="row row--genre">
+                                        <div class="col-md-6">                                        
+                                        <label for="genreg1">
+                                           <img class="pet__venus" src="img/venus.svg" alt="venus">
+                                       </label>
+                                       <input type="radio" id="genreg1" name="genreg" value="female" checked="checked">
+                                       </div>
+                                       <div class="col-md-6">
+                                        <label for="genreg2">
+                                           <img class="pet__marte" src="img/marte.svg" alt="marte">
+                                       </label>
+                                       <input type="radio" id="genreg2" name="genreg" value="male">
+                                       </div>
+                                   </div><!--row-->
+                                </div><!--col-->
+                                
+                                <div class="col-md-6">                               
+                                    <label for="race">Raça</label>
+                                       <select name="raceg" id="race" class="js-comboautres">
+                                           <option value="Abyssin">Abyssin</option>
+                                           <option value="American Curl">American Curl</option>
+                                           <option value="Bengal">Bengal</option>
+                                           <option value="British Shorthair">British Shorthair</option>
+                                           <option value="Burmese">Burmese</option>
+                                           <option value="Chartreux">Chartreux</option>
+                                           <option value="Cornish Rex">Cornish Rex</option>
+                                           <option value="Devon Rex">Devon Rex</option>
+                                           <option value="Exotic">Exotic</option>
+                                           <option value="Korat">Korat</option>
+                                           <option value="Kurilian Bobtail">Kurilian Bobtail</option>
+                                           <option value="Maine Coon">Maine Coon</option>
+                                           <option value="Mau Egyptien">Mau Egyptien</option>
+                                           <option value="Norvégien">Norvégien</option>
+                                           <option value="Persan">Persan</option>
+                                           <option value="Ragdoll">Ragdoll</option>
+                                           <option value="Sacré de Birmanie">Sacré de Birmanie</option>
+                                           <option value="Sibérien">Sibérien</option>
+                                           <option value="Somali">Somali</option>
+                                           <option value="Sphynx">Sphynx</option>
+                                           <option value="Autres">Adicionar</option>
+                                       </select>
+                                    <label>Esterilizado o Não esterilizado**</label>                                    
+                                    <div class="switch">
+                                       Esterilizado&nbsp;&nbsp;&nbsp;
+                                        <input type="checkbox" name="sterilizedg" id="sterilizedg" class="switch-input" value="sterilized" />
+                                        <label for="sterilizedg" class="ui-btn  ui-corner-all switch-label">Switch</label>
+                                        &nbsp;&nbsp;Não esterilizado
+                                    </div><!--switch-->
+                                </div>
+                            </div><!--row-->
+                        </div><!--mascota__gato-->
+                       </div><!--mascota__tipo-->
+                       
+                       <div class="row row--conditions">
+                           <div class="col-md-6">
+                               <label for="chienouchatmagasin">Loja de preferência para a compra dos produtos</label>
+                               <select name="magasin" id="chienouchatmagasin" class="js-comboautres">
+                                  
+                                  <option value="Autres">Adicionar</option>
+                               </select>
+                           </div>
+                           
+                           <div class="col-md-6">
+                               <input type="checkbox" name="conditions1" id="conditions1">
+                               <label for="conditions1">Aceito que meus nomes completos sejam publicados na lista de signatários</label>
+                           </div>
+                       </div><!--row-->
+                       
+                       <div class="row row--conditions">
+                        <div class="col-md-6">
+                            <label for="chienouchathabituellement">Marca utilizada habitualmente</label>
+                            <select name="habituellement" id="chienouchathabituellement" class="js-comboautres">
+                                <option value="Hills - Physiologique">Hills - Physiologique</option>
+                                <option value="Hills - Hills - Diètes de prescription">Hills - Diètes de prescription</option>
+                                <option value="Hills - Ideal Balance">Hills - Ideal Balance</option>
+                                <option value="Royal Canin - Physiologique">Royal Canin - Physiologique</option>
+                                <option value="Royal Canin - Diètes de prescription">Royal Canin - Diètes de prescription</option>
+                                <option value="Purina - Proplan">Purina - Proplan</option>
+                                <option value="Natural - Carnilove">Natural - Carnilove</option>
+                                <option value="Natural - Ownat">Natural - Ownat</option>
+                                <option value="Natural - Edgard Cooper">Natural - Edgard Cooper</option>
+                                <option value="Natural - Les recettes de Daniel">Natural - Les recettes de Daniel</option>
+                                <option value="Natural - Natura Diets">Natural - Natura Diets</option>
+                                <option value="Natural - Primordial">Natural - Primordial</option>
+                                <option value="Natural - Orijen">Natural - Orijen</option>
+                                <option value="Natural - Acana">Natural - Acana</option>
+                                <option value="Natural - Nutro">Natural - Nutro</option>
+                                <option value="Natural - Taste of the Wild">Natural - Taste of the Wild</option>
+
+                                <option value="Autres">Adicionar</option>
+                            </select>
+                        </div>
+                           
+                           <div class="col-md-6 conditionslabel">
+                               <input type="checkbox" name="conditions2" id="conditions2">
+                               <label for="conditions2">Aceito <a class="js-showconditions" href="#conditions">os termos de uso</a></label>
+                           </div>
+                       </div><!--row-->
+                       
+                       
+                        <!-- Ajouter PopUp -->   
+                          <div data-role="popup" id="ajouterPop" data-theme="a" class="ui-corner-all"> 
+                             <div style="padding:10px 20px;">
+                             <h4>Adicionar uma opção</h4>
+                              <label for="ajouterop" class="ui-hidden-accessible">Opção:</label>
+                              <input type="text" name="ajouterop" id="ajouterop" 
+                                     placeholder="Écrire l'option supplémentaire" data-theme="a"  />
+                                <input type="hidden" name="micombo" class="js-combo" value="otro">
+                              <a class="js-popupSave" href="#chienouchat" data-theme="b">Adicionar</a>
+                             </div>
+                          </div><!--POPUP-->
+                          
+                          <!-- Conditions PopUp -->   
+                          <div data-role="popup" id="conditionsPop" data-theme="a" class="ui-corner-all"> 
+                            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Fechar</a>
+                             <div style="padding:10px 20px;">
+                                 <div class="conditions__content"></div><!--conditions__content-->
+                             </div>
+                          </div><!--POPUP-->
+                          
+                  
+                   </div>
+                   <div class="col-md-4 align-center">
+                       <a class="btn disabled js-ok-chienouchat" href="#perro">
+                           <img class="responsive" src="img/add.png" alt="add">
+                       </a>
+                       <a class="btn btn-aceptar2 disabled js-ok-chienouchat2" href="#perro">Salvar contato</a>
+                   </div>
+               </div><!--row-->
+               </div>
+            </div>
+        </div>
+        <!-- /content -->
+    </div>
+    <!-- /page -->
+    
+    <!-- Start of voirlescontacts page -->
+    <div data-role="page" id="voircontacts" data-position="fixed">
+       <div data-role="header">
+           <div class="container-fluid">
+               <div class="row">
+                   <div class="col-md-6">
+                       <a class="header__link" href="#selector"><-</a>
+                   </div>
+                   <div class="col-md-6 align-right">
+                       <h2>CONTATOS</h2>
+                    </div>
+               </div>
+           </div>
+        </div><!--header-->
+        
+        <div data-role="content" id="ctn">          
+           <div class="container"> 
+               <table class="contactos__listado table">
+                  <thead>
+                   <tr>
+                       <th>Nome</th>
+                       <th>Género</th>
+                       <th>Código postal</th>
+                       <th>Telefone</th>
+                       <th>Email</th>
+                       <th>Loja</th>
+                       <th>Marca usada</th>
+                       <th>Pet</th>
+                   </tr>
+                   </thead>
+                   <tbody>
+                   </tbody>
+               </table>
+            </div>
+        </div>
+        <!-- /content -->
+    </div>
+    <!-- /page -->
+    
+    
+     <!-- Start of syncro page -->
+    <div data-role="page" id="syncro" data-position="fixed">
+       <div data-role="header">
+           <div class="container-fluid">
+               <div class="row">
+                   <div class="col-md-6">
+                       <a class="header__link" href="#selector"><-</a>
+                   </div>
+                   <div class="col-md-6 align-right">
+                       <h2>SINCRONIZAR</h2>
+                    </div>
+               </div>
+           </div>
+        </div><!--header-->
+        
+        <div data-role="content" id="ctn">          
+           <div class="container"> 
+               <div class="sync__wrap"></div>
+            </div>
+        </div>
+        <!-- /content -->
+    </div>
+    <!-- /page -->
+    
+    <!-- Start of condiciones page -->
+    <div data-role="page" id="conditions" data-position="fixed">
+       <div data-role="header">
+           <div class="container-fluid">
+               <div class="row">
+                   <div class="col-md-6">
+                       <a class="header__link" href="#chienouchat"><-</a>
+                   </div>
+                   <div class="col-md-6 align-right">
+                       <h2>CONDIÇÕES DE UTILIZAÇÃO</h2>
+                    </div>
+               </div>
+           </div>
+        </div><!--header-->
+        
+        <div data-role="content" id="ctn">          
+           <div id="conditions" class="container"> 
+               <h3>I.- Informations générales sur la société</h3>
+                       <p>Affinity Petcare S.A., (ci-après la <strong>« Société »</strong>) est une société de droit espagnol, titulaire du numéro d’identification fiscale A-62.295.761 et immatriculée au registre du commerce et des sociétés de Barcelone au folio 94, tome 32 672, feuille nº B-217.337, inscription nº 13. </p>
+                       <p>La Société se consacre, entre autres activités, à la fabrication et à la commercialisation d’aliments pour animaux domestiques et commercialise notamment les marques <strong>Nature’s Variety et True Instinct.</strong></p>
+                       <p>Le siège social de la Société est situé :</p>
+                       <p>Plaça Europa, 54-56<br> 
+                        L’Hospitalet de Llobregat<br> 
+                        08902 Barcelone (Espagne)<br>
+                        Tél. : +34 93 492 70 00<br>
+                        Télécopie : +34 93 492 70 01<br>
+                        E-mail : info@trueinstinct.com
+                        </p>
+                        <h3>II.- Acceptation et modification des conditions générales de l’application</h3>
+                        <h4>Acceptation des présentes conditions générales</h4>
+                        <p>Les présentes conditions générales (ci-après les « Conditions générales ») régissent l’utilisation de cette application (l’ « Application ») que la Société met à la disposition de l’utilisateur (l’ « Utilisateur »). L’utilisation de l’Application suppose l’acceptation complète, pleine et sans réserve, par l’Utilisateur, de toutes les Conditions générales en vigueur au moment où celui-ci accède à l’Application, de telle sorte que si l’Utilisateur n’est pas d’accord avec les Conditions générales, il devra s’abstenir d’utiliser l’Application.</p>
+
+                       <h4>Modification des Conditions générales</h4>
+                        <p>La Société se réserve le droit de modifier à tout moment les Conditions générales de l’Application, ainsi que tout autre document qui pourrait leur être lié. L’Utilisateur devra donc lire les Conditions générales à chaque fois qu’il accède à l’Application. En conséquence, l’Utilisateur sera seul responsable de la façon dont il accède à, et utilise, l’Application.</p>
+                        
+                        <h3>III.- Traitement des données à caractère personnel</h3>
+                        <h4>Responsable du traitement finalité et destinataires</h4>
+                        <p>Sauf indication contraire, La Société édite l’Application et est l’entité responsable du traitement de toutes les données à caractère personnel recueillies via l’Application. La présente politique de protection des données peut varier dans le temps en raison d’éventuels changements législatifs ou jurisprudentiels, ou selon les critères suivis par la Commission nationale de l’informatique et des libertés (CNIL). </p>
+
+                        <p>Le traitement des données à caractère personnel est effectué conformément à la réglementation applicable, notamment le Règlement européen dit « RGPD » (n° 2016-679 relatif à la protection des personnes physiques à l’égard du traitement des données à caractère personnel et à la libre circulation de ces données) et la loi dite « Informatique et libertés », (loi n° 78-17 du 6 janvier 1978 relative à l’informatique, aux fichiers et aux libertés) et toute réglementation qui les complète ou qui s’y substituerait.</p>
+
+                        <p>Pour toute question ou demande de précisions concernant le traitement des données à caractère personnel vous concernant, vous pouvez écrire aux adresses électronique et postale suivantes (sans préjudice de toutes actions possibles auprès des autorités compétentes, et notamment la CNIL) : info@trueinstinct.com / Affinity Petcare, S.A., Plaça Europa, 54-56, L’Hospitalet de Llobregat, Barcelone, 08902, en indiquant la référence « Protection des données ».</p>
+
+                       <h4>Données à caractère personnel objet du traitement</h4>
+
+                        <p>La Société traitera les données à caractère personnel suivantes :</p>
+                <ul>
+                <li>Les données initiales que vous nous fournissez volontairement dans le cadre d’une demande d’inscription en tant qu’Utilisateur, d’une demande d’information adressée à notre entreprise, d’une demande de participation à des promotions, ou d’une demande visant à bénéficier des services proposés par la Société. Dans chaque formulaire, nous vous indiquerons de manière claire et précise les données que vous devez fournir obligatoirement, afin que nous puissions traiter votre demande ou réaliser les prestations que vous nous demandez.</li>
+
+                <li>Les données qui sont générées ou échangées avec l’Utilisateur après sa demande initiale, afin que la Société puisse donner suite à cette demande.</li>
+
+                <li>Les données obtenues à partir de l’interconnexion des différents appareils via lesquels l’Utilisateur accède à l’Application de la Société.</li>
+
+                <li>Les données obtenues à partir de la génération de numéros d’identification anonymes et de leur association aux comptes des Utilisateurs inscrits.</li>
+
+                <li>Les données à caractère personnel fournies par l’Utilisateur par le biais d’un réseau social en vue de la gestion de sa demande. Ces données dépendent de la configuration de confidentialité de chaque Utilisateur, de l’usage qu’il fait du réseau social concerné, ainsi que des politiques de confidentialité propres au réseau social concerné.</li>
+                </ul>
+                
+                <h4>Finalités du traitement des données</h4>
+                <p>La Société traitera les données des Utilisateurs aux fins de gérer et de donner suite aux demandes qu’elle reçoit de leur part, que ce soient des demandes d’information, d’inscription, de participation à des promotions, ou pour bénéficier de certains services. En outre, elle traitera les données des Utilisateurs afin d’envoyer, y compris par des moyens électroniques, des informations promotionnelles sur des produits et services qui sont de nature similaire à ceux qui font l’objet des demandes reçues de la part des Utilisateurs.</p>
+                
+                <h4>Légitimité du traitement des données</h4>
+                <p>La Société est habilitée à traiter les données des Utilisateurs aux fins de la gestion et du traitement de leurs demandes, dans la mesure où ces données sont nécessaires à l’exécution des obligations contractuelles de la Société en ce qui concerne ces demandes. </p>
+
+                <p>En ce qui concerne l’analyse des données obtenues et l’envoi d’informations promotionnelles sur des produits et services de nature similaire à ceux qui font l’objet des demandes ou des achats des Utilisateurs, ce traitement constitue un intérêt légitime de la Société, expressément reconnu par la réglementation sur la protection des données ainsi que par la réglementation sur les services de la société de l’information. L’Utilisateur peut s’opposer à l’envoi  des communications commerciales sur les produits et services de True Instinct à tout moment en adressant un courriel à info@trueinstinct.com.
+                </p>
+                <h4>Cession aux tiers</h4>
+                <p>La Société cédera uniquement les données de l’Utilisateur :</p>
+
+                <p>- aux filiales de la Société dont les activités sont liées à l’alimentation, aux produits et aux services pour animaux de compagnie, pour les mêmes finalités que celles indiquées ci-dessus, dans le cadre de l’activité respective de chaque filiale, ou <br>
+                - à la Fondation Affinity, laquelle a pour mission de promouvoir le lien des animaux de compagnie avec les personnes, afin qu’elle puisse informer les Utilisateurs de ses activités, services et campagnes, lorsque ladite cession est nécessaire et indispensable pour l’exécution des finalités de traitement ci-dessus énoncées.</p>
+
+                <p>Par ailleurs, conformément à la réglementation en vigueur et selon l’étendue et les limitations prévues par celle-ci, La Société peut céder les données de l’Utilisateur à des administrations et autorités publiques, lorsqu’elle y est obligée en vertu de la législation régissant l’activité de la Société. En dehors de ces cas, La Société ne pourra céder les données à caractère personnel de l’Utilisateur à des tiers qu’après avoir obtenu expressément l’accord de l’Utilisateur.</p>
+
+                <p>La Société vous informe qu’elle collabore avec des tiers agissant en qualité de prestataire de services et soumis à des obligations de confidentialité au moins aussi strictes que celles prévues par les présentes, conformément à la législation en vigueur ; ces prestataires peuvent avoir accès aux données à caractère personnel vous concernant afin de réaliser les prestations et/ou d’exécuter les obligations qui découlent des relations juridiques entre les tiers concernés et la Société, dans le cadre du développement de l’activité de la Société. En tout état de cause, la Société a conclu avec lesdits prestataires des contrats de confidentialité et de protection des données, et ce en pleine conformité avec les dispositions prévues par la réglementation en vigueur en matière de protection des données.</p>
+                
+                <h4>Droits des Utilisateurs</h4>
+                <p>Les Utilisateurs peuvent exercer, à l’égard des données recueillies, les droits d’accès, de rectification, d’opposition, de suppression, de limitation et de portabilité des données, conformément aux dispositions prévues par la réglementation relative à la protection des données :</p>
+                <p>1) Droit d’accès
+                L’Utilisateur a le droit d’obtenir à tout moment et gratuitement des informations sur toutes les données personnelles qui le concernent et qui sont stockées par la Société.</p>
+ 
+                <p>2) Rectification, effacement, limitation du traitement (blocage), opposition 
+                Si l’Utilisateur n'est plus d'accord avec la conservation de ses données ou si celles-ci sont devenues incorrectes, la Société procèdera, sur demande, à l'effacement de ses données, au blocage du traitement de ses données, à la correction, si nécessaire, de ses données, ou à la limitation du traitement de ses données (dans la mesure du possible en vertu du droit applicable)</p>
+
+                <p>3) Portabilité des données  
+                L’Utilisateur a le droit de recevoir ses données dans un format structuré, couramment utilisé et lisible par machine, afin de pouvoir les transmettre à un autre responsable de traitement.</p>
+                <p>4) Droit de révocation du consentement avec effet pour l'avenir 
+                L’Utilisateur a le droit de révoquer son consentement à tout moment avec effet pour l'avenir. La licéité du traitement effectué jusqu'au moment de la révocation n'en est pas affectée. </p>
+
+                <p>Ces droits peuvent être exercés à tout moment en envoyant un courriel avec en objet « Protection des données » à l’adresse info@trueinstinct.com, ou par tout moyen postal permettant d’accuser réception par la Société, à l’adresse indiquée au point 1 (« Informations générales sur l’entreprise ») des Conditions générales, en indiquant sur l’enveloppe la mention « Protection des données ». </p>
+
+                <p>En outre, si vous considérez que le traitement des données à caractère personnel vous concernant porte atteinte à la réglementation ou à vos droits au respect de la vie privée, vous pouvez présenter une réclamation :</p>
+
+                <p>-	En écrivant aux adresses postale et électronique indiquées ci-dessus; ou bien <br>
+                -	Auprès de la CNIL.</p>
+	 
+                <h4>Avis aux mineurs</h4>
+                <p>La Société attire l’attention de l’Utilisateur sur le fait qu’il est interdit aux mineurs âgés de moins de 15 ans de s’inscrire sur l’Application et, par conséquent, de participer aux actions promotionnelles qui pourraient être mises en œuvre par la Société dans le cadre des activités et des produits de True Instinct.</p>
+
+                <p>En outre, l’Utilisateur est informé du fait que, s’il est âgé de plus de 15 ans et de moins de 18 ans, il est conseillé qu’il demande à ses parents ou à ses représentants légaux d’entrer sur l’ Application afin de lui expliquer les Conditions générales, et notamment la politique relative à la protection des données à caractère personnel y figurant, et afin qu’il puisse participer avec eux aux possibilités qui sont offertes par l’Application, sans préjudice des cas particuliers dans lesquels la loi oblige les parents ou représentants légaux de mineurs âgés de plus de 15 ans à aider ceux-ci à donner leur consentement au traitement des données à caractère personnel les concernant.</p>
+                
+                <h4>Transferts internationaux de données</h4>
+                <p>La Société fait appel à des prestataires de services technologiques qui sont établis dans des pays ne disposant pas d’une réglementation équivalente à la réglementation européenne (ci-après les « pays tiers »). Ces prestataires ont conclu avec la Société les contrats de confidentialité et de traitement de données exigés par la réglementation en vigueur pour les fournisseurs établis dans des pays tiers, en vue de l’application des garanties nécessaires pour préserver la vie privée de l’Utilisateur. L’Utilisateur peut obtenir davantage d’informations sur les garanties mises en place pour assurer le respect de sa vie privée en écrivant aux adresses postale et électronique indiquées ci-dessus.</p>
+
+                <h4>Délai de conservation des données</h4>
+                <p>Les données à caractère personnel de l’Utilisateur ne sont pas conservées par la Société au-delà de la durée strictement nécessaire aux finalités poursuivies telles qu'énoncées dans les Conditions générales et tant que durera sa relation avec la Société.</p>
+
+                <p>Après la fin de la relation avec l’Utilisateur, la Société conservera les données de l’Utilisateur pendant 5 (cinq) ans (délai en liaison avec les délais de prescription d’une action commerciale). Dans ce cas, les données seront traitées aux seules fins de justifier de l’exécution des obligations légales ou contractuelles de la Société. Au terme de ce délai, les données concernant l’Utilisateur sont supprimées ou anonymisées, selon le cas.</p>
+                
+                <h3>IV.- Propriété intellectuelle</h3>
+                <h4>Contenus de l’Application </h4>
+                <p>L’Application peut inclure, à titre d’exemple non limitatif, des informations, données, contenus, textes, documents, études cliniques, recherches, mais également, du matériel publicitaire, des dessins, du matériel technique, des bases de données, des éléments sonores, des programmes informatiques, des signes distinctifs, des marques, des dessins ou des modèles graphiques, des combinaisons d’éléments, logos et images, qui sont protégés par des droits de propriété intellectuelle ou industrielle dont la Société est le titulaire ou le licencié légitime. </p>
+
+                <p>À cet égard, les actions suivantes sont strictement interdites : la reproduction totale ou partielle, la communication publique, la modification, la transformation, la copie, la distribution ou toute autre forme d’exploitation et de manipulation de l’Application, de ses dispositifs techniques, contenus, applications, codes source, ou de la conception, de la sélection et des modalités de présentation des contenus, et, de manière générale, à l’égard de toute information contenue sur l’Application. </p>
+
+                <p>De même, il est interdit de décomposer, de réaliser une ingénierie inverse ou, de manière générale, de transmettre de quelque façon que ce soit les programmes informatiques nécessaires au fonctionnement et à l’accès de l’Application et des services qu’il contient. Il est interdit de réaliser des œuvres dérivées de ces programmes, ou d’effectuer tout acte d’exploitation à l’égard de ceux-ci. En particulier, il est interdit de mettre en place des liens, des hyperliens, « framing » ou autres, vers l’Application sans l’accord préalable et exprès de la Société.</p>
+
+                <h4>Contributions des Utilisateurs</h4>
+                <p>L’Utilisateur déclare et garantit être le propriétaire ou le titulaire des droits et/ou autorisations nécessaires relatifs aux droits d’auteur, droits de la personnalité ou autres droits de propriété intellectuelle et/ou industrielle éventuellement attachés à sa contribution sur l’Application. </p>
+                <p>En contrepartie de l’utilisation de l’Application, l’Utilisateur cède à la Société, à titre gratuit, ses droits sur ses contributions pour les exploitations suivantes :</p>
+
+                <p>(i) reproduction, en tout ou partie, de ses contributions, leur intégration et communication sur les site Web et Application, accompagnées ou non d’autres contenus ainsi que leur communication au public par tous supports de communication connu ou inconnu à ce jour ;</p>
+
+                <p>(ii) adaptation pour les besoins des droits visés ci-dessus.</p>
+
+                <p>Cette cession est délivrée à titre gratuit pour le monde entier et pour toute la durée de la protection légale.</p>
+                
+                <h3>V.- Utilisation des services et contenus</h3>
+                <p>Tout Utilisateur qui accède à l’Application doit faire un usage adéquat des services et contenus, conformément à la philosophie de l’Application, telle qu’elle est décrite dans ce chapitre, et dans le respect des principes de bonne foi et de la loi en vigueur.</p>
+
+                <p>À cet égard, en ce qui concerne les services proposés ou qui pourraient être proposés sur l’Application (tels que, par exemple, les chats, forums ou groupes de discussion) ou via les profils officiels sur les réseaux sociaux, sur lesquels l’avis de l’Utilisateur pourrait être recueilli ou sur lesquels celui-ci pourrait héberger des contenus, l’Utilisateur s’engage à ne publier, divulguer, diffuser, communiquer ou distribuer aucun type de matériel et/ou, de manière générale, aucune information ou opinion dont les contenus seraient contraires à la législation en vigueur, à la morale ou à l’ordre public, à caractère diffamatoire ou pornographique, ou qui porteraient atteinte à l’honneur ou à l’image de la Société ou de tout autre tiers.</p>
+
+                <p>De même, l’Utilisateur s’engage à réaliser les actions précitées à l’égard uniquement de contenus dont il détient, de manière légitime et conformément à la loi, les droits d’exploitation, c’est-à-dire les droits de reproduction, de distribution, de communication publique et de transformation. </p>
+
+                <p>Il est également interdit de faire usage des services proposés ou pouvant être proposés sur l’Application (tels que, par exemple, les chats, forums ou groupes de discussion) dans un but lucratif ou de telle manière que cet usage implique ou pourrait impliquer un préjudice ou une conduite déloyale à l’égard de l’Application et de la Société (comme, par exemple, le fait de dévier le trafic vers une autre application).</p>
+
+                <p>Cet engagement concerne également le fait que l’utilisation des services proposés ou susceptibles d’être proposés sur l’Application doit être conforme à l’objectif primordial et à la philosophie de l’Application, qui n’est autre que les Utilisateurs puissent recevoir et/ou partager des informations et des expériences concernant le monde des animaux domestiques et des produits et services de True Instinct via l’interface prévue à cet effet.</p>
+
+                <p>La Société décline toute responsabilité à l’égard des contenus tiers (comme, par exemple, les commentaires, photographies, vidéos, chats, forums, groupes de discussion, etc.) non-conformes aux dispositions stipulées ci-dessus, et se réserve le droit de modifier ou, le cas échéant, de retirer immédiatement de l’Application lesdits contenus ou informations, sans que cela ne donne lieu à une quelconque indemnisation en faveur de l’Utilisateur.</p>
+
+                <p>À cet égard, la Société donne la possibilité aux Utilisateurs de l’Application de dénoncer et de signaler à la Société, à l’adresse de courrier électronique info@trueinstinct.com, tout abus, incident, violation de droits, contenu inapproprié ou contraire aux dispositions des présentes Conditions générales qui pourrait apparaître sur l’Application et dont les Utilisateurs pourraient avoir connaissance. L’Utilisateur fournira une brève explication des causes du signalement ou de l’incident. En cas de plainte, la Société agira avec la diligence qui s’impose pour retirer les données ou informations faisant l’objet de la plainte ou pour en rendre l’accès impossible. À cet égard, l’Utilisateur est informé du fait que les données de la personne signalant l’incident et de la personne dénoncée peuvent être traitées par La Société dans le but d’enquêter sur l’abus, l’incident, le contenu ou la violation signalée et de déterminer si celle-ci doit être portée à la connaissance des autorités publiques compétentes, auquel cas les données en question seront cédées aux autorités publiques administratives et/ou judiciaires, ainsi qu’aux forces de sécurité. Sans préjudice de cette possibilité de signalement et de plainte offerte par la Société, l’Utilisateur peut avoir recours aux autres mécanismes de signalement ou de réclamation prévus par les réseaux sociaux sur lesquels la Société a créé des profils officiels.</p>
+
+                <p>L’Utilisateur est informé que tout dépôt de contenu sur l’Application effectué par lui dans le cadre de l’utilisation du site entraîne la cession gratuite et indéterminée à la Société de tous les droits d’exploitation sur les contenus concernés, c’est-à-dire les droits de reproduction, de distribution, de communication publique et de transformation.</p>
+                
+                <h3>VI.- Participation à des concours et promotions</h3>
+                <p>Le traitement de données lié à la participation à des concours et promotions sera dûment détaillé dans le règlement du concours ou de la promotion concerné et, le cas échéant, dans les autres informations fournies à cet effet. Cependant, à titre d’exemple non limitatif, l’Utilisateur qui décide de participer à des concours ou promotions est informé que les données le concernant pourront être traitées dans le but de lui envoyer des communications publicitaires ou promotionnelles (y compris des communications commerciales électroniques) concernant les produits, services et activités de True Instinct, et dans le but de gérer sa participation à chaque promotion ou concours en particulier, et notamment pour vérifier que l’Utilisateur remplit les conditions nécessaires pour recevoir le prix de la promotion ou du concours, pour procéder à la remise ou à l’envoi du prix au gagnant et pour publier la liste des gagnants et/ou contenus récompensés sur l’Application de la Société et sur d’autres sites Web ou autres médias, sans préjudice des autres finalités qui pourraient être établies pour chaque promotion ou concours en particulier. </p>
+
+                <p>En outre, l’Utilisateur est informé que lorsque l’hébergement de contenus sur l’Application est effectué dans le cadre de sa participation à un concours ou une promotion, l’acceptation du règlement du concours ou de la promotion en question, ainsi que des présentes Conditions générales, impliquera la cession gratuite et pour une durée indéterminée, au profit de la Société, de tous les droits d’exploitation sur les contenus concernés.</p>
+                
+                <h3>VII.- Rubrique « QUESTIONS EN MATIÈRE DE NUTRITION »</h3>
+                <p>L’Application peut inclure une section intitulée « QUESTIONS EN MATIÈRE DE NUTRITION ». Cette rubrique constitue un service de communication en ligne qui propose des opinions à caractère indicatif, informatif et/ou éducatif concernant les questions que l’Utilisateur pourrait se poser en matière de nutrition. En aucun cas ces opinions ne prétendent ni ne peuvent remplacer la visite et la consultation correspondante auprès d’un vétérinaire professionnel. En effet, les vétérinaires de « QUESTIONS EN MATIÈRE DE NUTRITION » émettent des avis sur la nutrition sans examiner physiquement le chien / chat qui fait l’objet de la demande de renseignements. Par conséquent, rien de ce qui est publié sur l’Application ne peut être utilisé comme un diagnostic ou un traitement vétérinaire.</p>
+
+                <p>La Société décline toute responsabilité à l’égard de toute interprétation, utilisation ou application inadéquate de la part de l’Utilisateur des opinions fournies par le biais de la rubrique « QUESTIONS EN MATIÈRE DE NUTRITION ».</p>
+
+                <p>Tant les questions des Utilisateurs que les documents d’appui joints à celles-ci par les Utilisateurs peuvent être publiés par la Société sur l’Application et être visibles pour le reste des Utilisateurs inscrits sur le site. C’est pourquoi, les Utilisateurs qui posent des questions ayant trait à des cas cliniques vétérinaires réels garantissent à la Société qu’ils ont obtenu préalablement le consentement du propriétaire de l’animal auquel il est fait allusion dans le cas clinique concerné, afin que celui-ci puisse être publié sur l’Application. En outre, dans les cas où des données à caractère personnel de tiers apparaîtraient dans la demande ou, le cas échéant, dans les documents joints à l’appui de celle-ci, l’Utilisateur garantit à la Société qu’il a préalablement obtenu le consentement de ces tiers à la publication des données les concernant sur l’Application. Dans le cas où l’Utilisateur n’aurait pas obtenu ce consentement, il pourra publier sa question sur l’Application à condition d’effacer toute référence aux données à caractère personnel de tiers.</p>
+
+                <p>En outre, en cas de publication de questions relatives à des cas pratiques soumis à des étudiants en école vétérinaire au cours de leur formation, ou qui contiennent des extraits de livres ou de textes vétérinaires, l’Utilisateur doit être cessionnaire des droits de propriété intellectuelle correspondants ou doit avoir obtenu la licence ou l’autorisation d’utilisation correspondante pour en faire usage dans la rubrique « QUESTIONS EN MATIÈRE DE NUTRITION ».   </p>
+
+                <p>Les vétérinaires qui répondent aux questions des Utilisateurs inscrits dans la rubrique « QUESTIONS EN MATIÈRE DE NUTRITION » tenteront de répondre aux questions des Utilisateurs le plus rapidement possible en fonction de leur disponibilité. </p>
+
+                <p>La Société offre la possibilité aux Utilisateurs de la rubrique « QUESTIONS EN MATIÈRE DE NUTRITION » de     dénoncer et de signaler à la Société, à l’adresse de courrier électronique info@trueinstinct.com, tout abus, incident, violation de droits, contenu inapproprié ou contraire aux dispositions des Conditions générales, à la législation relative à la protection des données à caractère personnel et, en général, à la législation en vigueur, qui pourrait apparaître dans cette rubrique et dont les Utilisateurs pourraient avoir connaissance. En cas de plainte, la Société agira avec la diligence qui s’impose pour retirer les données ou informations faisant l’objet de la plainte ou pour en rendre l’accès impossible.</p>
+                
+                <h3>VIII.- Réseaux sociaux</h3>
+                <p>Le traitement de données des Utilisateurs qui suivent les profils officiels de la Société et de ses marques est régi par les Conditions générales et, à titre subsidiaire, par les politiques de confidentialité et les conditions d’utilisation fixées par les réseaux sociaux eux-mêmes. </p>
+
+                <p>La Société traitera les données des Utilisateurs qui suivent ou deviennent « fans » de l’un de ces profils , dans le cadre des finalités décrites au sein des  Conditions générales, mais aussi dans le but d’administrer correctement lesdits profils et de connaître les opinions et/ou commentaires des Utilisateurs. En devenant fan ou suiveur du profil, l’Utilisateur consent au traitement des données le concernant conformément aux finalités indiquées dans l’environnement du réseau social. </p>
+
+                <p>La Société peut éliminer de son profil toute information ou tout contenu qui serait contraire aux règles établies dans les conditions générales d’utilisation du réseau social en question, ainsi qu’aux dispositions des Conditions générales. </p>
+
+                <p>L’Utilisateur peut exercer les droits d’accès, de rectification, de suppression et d’opposition à l’utilisation des données le concernant à tout moment, selon les modalités fixées dans les Conditions générales. En tout état de cause, l’Utilisateur peut cesser de suivre la page officielle du réseau social suivant les modalités indiquées dans les conditions d’utilisation du réseau social, et sans que la Société puisse intervenir dans ce processus. En outre, il est rappelé que toute modification ou rectification des données de l’Utilisateur du réseau social doit être effectuée par le biais de la configuration de l’Utilisateur, et ne peut en aucun cas être réalisée par la Société elle-même.</p>
+
+                <p>Pour toute demande de renseignements concernant le traitement des données des suiveurs des profils officiels de la Société sur les réseaux sociaux, l’Utilisateur peut contacter la Société à l’adresse électronique suivante : info@trueinstinct.com</p>
+                
+                <h3>IX.- Limitation de responsabilité</h3>
+                <h4>Responsabilité en tant qu’intermédiaire technique </h4>
+                <p>Conformément aux dispositions de la loi sur la Confiance dans l’Economie Numérique (« LCEN ») du 21 juin 2004, la responsabilité de la Société concernant les services interactifs est celle d’un hébergeur de contenus ; en effet, les services interactifs permettant aux Utilisateurs d’apporter les "contributions", ils ne relèvent pas de l’activité éditoriale de la Société qui ne fait que mettre à disposition des Utilisateurs lesdits services interactifs et en stocker le contenu sur son Application. </p>
+
+                <p>Ainsi, les contributions publiées ne sauraient être considérées comme reflétant les opinions de la Société et cette dernière ne peut donc pas voir sa responsabilité engagée du fait des contributions apportées par les Utilisateurs si elle n’a pas effectivement eu connaissance de la contribution avant sa mise en ligne ou si, dès le moment où elle en a eu connaissance, elle a agi promptement pour retirer ce message.</p>
+
+                <p>Quels que soient les moyens de contrôle que la Société met en œuvre, il est entendu qu’en raison du volume des informations publiées, la Société n’est pas soumise à une obligation générale de surveiller les informations qu'elle stocke, ni à une obligation générale de rechercher des faits ou des circonstances révélant des activités illicites éventuelles, ni à une obligation de garantie concernant l’exactitude, la probité ou l'honnêteté des informations publiées par les Utilisateurs. </p>
+
+                <p>La Société se réserve le droit d’insérer ou d’autoriser tout tiers à insérer des messages publicitaires, promotionnels et/ou de parrainage. Ainsi, les espaces vidéo intégrés dans l’outil de lecture des vidéos sont gérés par la Société. Ces espaces sont indépendants des contributions elles-mêmes et ne peuvent en aucun cas remettre en cause la qualification d'intermédiaire technique de la Société et le régime de responsabilité en découlant.</p>
+                
+                <h4>Responsabilité éditoriale</h4>
+                <p>Les informations contenues sur l’Application ne constituent ni directement, ni indirectement, une consultation vétérinaire. En aucun cas les informations éditées sur l’Application ne sont susceptibles de se substituer à une consultation, une visite ou un diagnostic formulé par un vétérinaire.</p>
+
+                <p>L'Utilisateur reconnait que les informations qui sont mises à sa disposition ne sont ni complètes, ni exhaustives et que ces informations ne traitent pas de l'intégralité des différents symptômes, médicaments et traitements appropriés aux pathologies et différents maux intéressant l'animal de l’Utilisateur.</p>
+
+                <p>La Société ne garantit en aucun cas un quelconque résultat à la suite de la mise en application des informations éditées sur l’Application. L'obligation de fourniture de services de la Société se limite à une obligation de moyens.</p>
+
+                <h4>Exonération de responsabilité</h4>
+                <p>La Société met à disposition des Utilisateurs un ensemble d’informations qui, bien qu’elles soient élaborées par des professionnels du secteur, et malgré la diligence exercée lors de leur élaboration, peuvent contenir des imprécisions ou des erreurs, ou bien ne pas être à jour à la date d’accès de l’Utilisateur. À cet égard, après avoir informé l’Utilisateur de la possibilité d’imprécisions en ce qui concerne le contenu de l’Application, la Société décline toute responsabilité quant aux potentiels dommages résultant de l’éventuelle inexactitude, du manque d’exhaustivité et/ou de la non mise à jour des contenus, ainsi que des éventuelles erreurs typographiques, formelles ou numériques qui pourraient apparaître sur l’Application. </p>
+                <p>En outre, La Société ne sera pas responsable des éventuelles interruptions du service, du mauvais fonctionnement de celui-ci ou des difficultés de connexion au réseau de communication par lequel l’Application est accessible, quelle que soit la cause du mauvais fonctionnement.</p>
+
+                <p>La Société ne garantit pas que les contenus de l’Application sont aptes ou disponibles en dehors de la France  . Dans l’éventualité où tout ou partie des contenus de l’Application serait considéré comme illégal dans d’autres pays que la France, l’accès et l’utilisation de ces contenus par les Utilisateurs seraient interdits, et dans le cas où un tel accès se produirait, celui-ci se ferait exclusivement sous la responsabilité de l’Utilisateur.</p>
+
+                <p>L’usage qui pourrait être fait des informations et des contenus figurant sur l’Application et/ou de l’accès à d’autres sites Web tiers par le biais de connexions ou de « liens » apparaissant sur l’Application, se fera sous la responsabilité exclusive de ceux qui se livrent à ces actes, la Société déclinant toute responsabilité à l’égard des dommages qui pourraient découler de tels usages ou activités.</p>
+
+                <p>En conséquence, l’Utilisateur accepte de façon expresse et totale que l’accès et l’utilisation de cette Application se font sous sa seule et unique responsabilité.</p>
+
+                <h3>X. Conservation et archivage</h3>
+                <p>Conformément aux dispositions de la LCEN, la Société est tenue, en sa qualité d’hébergeur de contenu, de détenir et de conserver les données de nature à permettre l’identification de toute personne ayant diffusé des contenus par son intermédiaire, pour le cas où les autorités judiciaires en feraient la demande.</p>
+
+                <p>Les fichiers informatisés conservés dans les systèmes informatiques de la Société dans des conditions raisonnables de sécurité, seront considérés comme les preuves de dépôt des contributions ainsi que des différentes transmissions d’informations entre l'Utilisateur et la Société, permettant à cette dernière d'assurer les traitements souhaités par l'Utilisateur.</p>
+
+                <p>L'archivage de ces données est effectué sur un support fiable et durable de manière à correspondre à une copie fidèle et durable, conformément à l'article 1379 du code civil.</p>
+                
+                <h3>XI. Droit applicable et juridiction</h3>
+                <p>Les Conditions générales et toute question relative à l’interprétation, à l’exécution ou à l’inexécution de celles-ci sont régies par les lois françaises, sans préjudice de l’application de la réglementation communautaire et des traités internationaux en vigueur, le cas échéant.</p>
+                <p>Les tribunaux français seront seuls compétents dans les conditions de droit commun.</p>
+
+            </div>
+        </div>
+        <!-- /content -->
+    </div>
+    <!-- /page -->
+    <!-- /page -->
+    
+</div>
+
+<script type="text/javascript" src="cordova.js"></script>
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/jquery.mobile-1.4.5.min.js"></script>
+<script src="js/datepicker.min.js"></script>
+<script src="js/jquery.form.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/debut-activite.js"></script>
+<script src="js/uploader.js"></script>
+<script src="js/chienouchat.js"></script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+body { font-size: 1rem; }
+.container { max-width: 960px; }
+
+/***************************
+  Home
+*****************************/
+#homepage, #selector {
+    background-image: url(../img/home_bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+}
+.login__wrap {
+    width: 45%; margin: auto; background-color: rgba(255, 255, 255, 0.8); box-shadow: 0 0 5px 3px rgba(0,0,0,0.1); padding: 40px 65px; padding-bottom: 10%; margin-top: 8%; 
+}
+.login__wrap h2 {
+    font-family: 'BrandonGrotesque-Medium'; color:#6b4024; font-size: 3rem; text-align: center; font-weight: bold; margin-top: 25px; margin-bottom: 65px;
+}
+.login__wrap form { max-width: 80%; margin: auto; }
+.ui-mobile label { font-family: 'BrandonGrotesque-Regular'; color:#9d9d9d; margin-bottom: 0; font-size: 15px; }
+input.login__txt { color:#462917; font-size: 18px; margin-bottom: 85px; padding-top: 0; }
+
+
+/***************************
+  Suivi
+****************************/
+#suivi { background-color: #FFF; background-repeat: no-repeat; background-position: right bottom; background-size: 100% auto; background-image: url(../img/internas_bg.jpg); }
+#suivi.ui-page-theme-a .ui-bar-inherit { background-color: #f08400; color:#FFF; border:none; box-shadow: 0px 0px 1px 4px rgba(0,0,0,0.2); padding: 3px 10px; }
+.ui-header h2 { margin: 0; font-family: 'Supernettcn-Regular'; letter-spacing: 1px; font-size: 32px; font-weight: normal; }
+a.header__link { font-size: 40px; color:#FFF !important; font-family: 'Supernettcn-Regular'; text-shadow: none; line-height: 40px; }
+
+
+
+.ui-page-theme-a .row--activation .ui-btn { background: transparent; border:none; text-shadow: none; padding: 0; overflow: inherit;  }
+.ui-page-theme-a .row--activation  .ui-btn img { display: block; width: 100%; filter: grayscale(100%); }
+
+/*  Checkbox tipo de activacion */
+.row--activation label.ui-btn.ui-radio-off::after { top: auto; bottom: -30px; left: 50%; border: 3px solid #a7a7a7; opacity:1; background-color: #FFF; width: 30px; height: 30px; }
+.row--activation .ui-radio label.ui-btn.ui-radio-on::after { background-color: #291501; top: auto; bottom: -30px; left: 50%; width: 30px; height: 30px; border: 3px solid #fff; box-shadow: 0 0 0 3px #291501; }
+.row--activation label.ui-btn.ui-radio-on img { filter: grayscale(0%); }
+
+.row--uploader .ui-input-text { display: none; }
+.preview-images-zone .preview-image { position: relative; }
+.preview-images-zone .preview-image .image-zone { overflow: hidden; width: 90px; height: 90px; background-color: #e8e8e8; margin-bottom: 20px; }
+.preview-images-zone .preview-image .image-zone img { max-width: 140px; min-height: 100%;  }
+.preview-images-zone > .preview-image > .image-cancel {
+    font-size: 18px; position: absolute; top: 5px; right: 10px; font-weight: bold; cursor: pointer;
+    display: none;  z-index: 100; color:#FFF; background-color: #FF0000; width:24px; height: 24px; text-align: center; border-radius: 50%;
+}
+.preview-image:hover > .tools-edit-image, .preview-image:hover > .image-cancel { display: block; }
+
+
+/****************************
+  Forms
+*****************************/
+.ui-input-text input, .ui-input-search input {
+    background: #FFF; border:none; border-bottom: 2px solid #d7d7d7; border-radius: 0; font-family: 'BrandonGrotesque-Regular'; color:#4d2c22; padding-top: 0; padding-bottom: 0; font-size: 18px; min-height: 2em;
+}
+.ui-body-a, .ui-page-theme-a .ui-body-inherit, html .ui-bar-a .ui-body-inherit, html .ui-body-a .ui-body-inherit, html body .ui-group-theme-a .ui-body-inherit, html .ui-panel-page-container-a { border:none; }
+.ui-input-text, .ui-input-search { margin-top: 0; margin-bottom: 25px; min-height: 2em; }
+
+
+button.btn-cafe, a.btn-cafe, a.btn-naranja, a.btn-verde { background-color: none; background-image: url(../img/boton_bg.png); color:#FFF !important; text-shadow: none; border: none; font-family: 'Supernettcn-Regular'; font-weight: normal; font-size: 24px; padding: .05em 1em; border-radius: 0 !important; background-size: 100% auto; background-repeat: no-repeat; line-height: 1.9rem; display: inline-block; }
+a.btn-naranja { background-image: url(../img/boton_bg2.png); padding: .3em 1em; }
+a.btn-verde { background-image: url(../img/boton_bg3.png); padding: .3em 1em; }
+a.btn-grey { background-color: #e8e8e8; color:#452917; font-family: 'BrandonGrotesque-Regular'; margin-bottom: 10px; margin-top: 10px; padding: .2rem 1rem; font-size: 22px; line-height: 22px; vertical-align: bottom; border-radius: 0; }
+a.btn-grey span { font-size: 50px; font-family: 'Supernettcn-Regular'; vertical-align: top; line-height: 25px; }
+a.btn-100 { width: 100%; }
+a.btn-80 { width: 80%; margin: auto; display: block; }
+textarea#incidentes { height: 470px !important; font-family: 'BrandonGrotesque-Regular'; color:#462917; font-size: 20px; padding: .6em 1em; box-shadow: inset 0 1px 3px rgba(0,0,0,.2); }
+a.btn-aceptar, input.btn-aceptar { color:#ffda00 !important; font-size: 40px; width: 80%; margin: auto; display: block; background-color: transparent; background-image: url(../img/boton_bg.png); background-repeat: no-repeat; font-family: 'Supernettcn-Regular'; font-weight: normal; line-height: 50px; text-shadow: none; border:none !transparent; }
+
+input.btn-aceptar { width: 100%; opacity: 1; text-indent: 0; }
+input.btn-aceptar.disabled { pointer-events: none; cursor: none; opacity: .1; }
+.ui-page-theme-a #submitForm .ui-btn.ui-input-btn { border: none; background: transparent; width: 80%; margin: auto;  color:#FFF; }
+
+
+a.btn-aceptar2 { color:#ffda00 !important; font-size: 35px; width: 100%; margin: auto; display: block; background-image: url(../img/boton_bg.png); background-repeat: no-repeat; font-family: 'Supernettcn-Regular'; font-weight: normal; line-height: 45px; text-shadow: none; margin-top: 20px; }
+.ui-page-theme-a .ui-focus { box-shadow: none; }
+.ui-shadow { box-shadow: none; }
+.ui-page-theme-a .ui-btn { font-family: 'BrandonGrotesque-Regular'; font-size: 18px; }
+
+.btn.disabled { filter:grayscale(100); opacity: .3; }
+
+/**** Select *****/
+.ui-page-theme-a .ui-select .ui-btn {  text-shadow: none; background:transparent; color:#462a18; border:none; text-align: left; padding-left: 0; padding-top: 0; padding-bottom: 3px; border-bottom: 2px solid #d7d7d7; border-radius: 0; font-weight: normal; }
+.ui-select .ui-btn select { height: 2em; }
+.ui-page-theme-a .ui-btn.ui-btn-active { box-shadow: none; background:transparent; border:none; text-shadow: none; color:#462a18;  }
+
+.ui-icon-carat-d::after { background-color:transparent; background-image: url(../img/flecha.png); background-size: 12px auto;  }
+
+/**************************
+  Chien ou chat
+***************************/
+.mascota__perro { display: none; }
+.mascota__gato { display: none; }
+
+#chienouchat, #gato, #perro, #chienouchat2 { background-color: #FFF; background-position: right bottom; background-size: 100% auto; background-image: url(../img/internas_bg.jpg); background-repeat: no-repeat; }
+#chienouchat .ui-header, #gato .ui-header, #perro .ui-header, #chienouchat2 .ui-header, #conditions .ui-header { background-color: #a6a600; color:#FFF; border:none; box-shadow: 0px 0px 1px 4px rgba(0,0,0,0.2); }
+.mascota__tipo__left { border:1px solid #adadad; padding: 28px 20px; margin-bottom: 20px; }
+.mascota__tipo__left h3 { color:#adadad; font-size: 2.5rem; font-family: 'BrandonGrotesque-Regular'; }
+img.pet__gato { height: 130px; margin-top: 20px;   }
+
+/*  Checkbox tipo de mascota */
+#chienouchat.ui-page-theme-a .mascota__chienouchat label.ui-btn { border: none; background-color: #FFF; overflow: inherit;  }
+#chienouchat.ui-page-theme-a .mascota__chienouchat label.ui-btn img { filter: grayscale(100%) opacity(0.3); margin-bottom: 70px;  }
+#chienouchat.ui-page-theme-a .mascota__chienouchat label.ui-btn.ui-radio-on img { filter: grayscale(0%) opacity(1);  }
+#chienouchat.ui-page-theme-a .mascota__chienouchat .ui-btn.ui-radio-off::after { top: auto; bottom: 0; left: 50%; width: 70px; height: 70px; background-color: #FFF; border: 2px solid #a6a6a6; border-radius: 50%; }
+#chienouchat.ui-page-theme-a .mascota__chienouchat .ui-btn.ui-radio-on::after { top: auto; bottom: 0; left: 50%; width: 63px; height: 63px; background-color: #261504; border-radius: 50%; border:13px solid #FFF; box-shadow: 0 0 0 2px #291501; }
+
+.conditionslabel label { display: inline-block; }
+.conditionslabel a { font-size: 15px; font-weight: normal; color: #333; }
+
+/*  Checkbox genero mascota */
+.ui-page-theme-a .row--genre .ui-btn { padding: 0px; background: transparent; border:none; overflow: inherit; }
+.ui-page-theme-a .row--genre .ui-btn + input { visibility:hidden; }
+.ui-page-theme-a .row--genre .ui-btn img { height:50px; width: auto; display: block; margin: auto; opacity: 0.4; }
+.ui-page-theme-a .row--genre .ui-btn::after { top: auto; bottom: 0; left: 50%; margin-left: -15px; width: 25px; height: 25px; border: 2px solid #a6a6a6; border-radius: 50%; background-color: #FFF; margin-top: 10px; position: relative; }
+.ui-page-theme-a .row--genre .ui-btn.ui-radio-on::after { background-color: #291501; border:4px solid #FFF; box-shadow: 0 0 0 2px #291501; width: 15px; height: 15px; }
+.ui-page-theme-a .row--genre .ui-btn.ui-radio-on img { opacity: 0.9; }
+
+/*  Checkbox talla */
+.ui-page-theme-a .row--taille .ui-btn { padding: 0px; background: transparent; border:none; overflow: inherit; }
+
+.ui-page-theme-a .row--taille .ui-btn img { opacity: 0.5; filter: grayscale(100); }
+.ui-page-theme-a .row--taille .ui-btn.ui-radio-on img { opacity: 1; filter: grayscale(0); }
+
+.ui-page-theme-a .row--taille .ui-btn + input { visibility: hidden; }
+.ui-page-theme-a .row--taille .ui-btn::after { content: ""; top: auto; bottom: 0; left: 50%; margin-left: -15px; width: 15px; height: 15px; border: 2px solid #a6a6a6; border-radius: 50%; background-color: #FFF; margin-top: 10px; position: relative; }
+.ui-page-theme-a .row--taille .ui-btn.ui-radio-on::after { background-color: #291501; border:4px solid #FFF; box-shadow: 0 0 0 2px #291501; width: 15px; height: 15px; }
+
+.row--taille img.pet__perro--s  { width: 40px; margin-top: 25px; margin-left: auto; margin-right: auto; display: block;  }
+.row--taille img.pet__perro--m  { width: 55px; margin-top: 15px; margin-left: auto; margin-right: auto; display: block; }
+
+/* Checkbox condiciones */
+.row--conditions .ui-checkbox { margin: 0; }
+.row--conditions .ui-checkbox label.ui-btn { padding: 0; padding-left: 40px; background: transparent; font-size: 15px; font-weight: normal; border:none; }
+.row--conditions .ui-checkbox label.ui-btn + input { display: none; }
+.row--conditions .ui-checkbox-on::after { background-color: #2a1701; }
+
+.row-contactdata {  margin-bottom: 25px; }
+
+
+/***** Switch ****/
+.switch { color:#462a18; font-family: 'BrandonGrotesque-Regular'; }
+.switch .ui-checkbox { position: relative; display: inline-block; vertical-align: middle;  }
+.ui-page-theme-a label.switch-label { display: block; position: relative; width: 48px; height: 24px; text-indent: -150%; clip: rect(0 0 0 0); color: transparent; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; padding: 0; border:2px solid #462a18; box-shadow: none; border-radius: 20px; padding: 3px; }
+.ui-page-theme-a label.switch-label:before,
+.ui-page-theme-a .switch-label:after { content: ""; display: block; position: absolute; cursor: pointer;  margin: 0; width: 10px; height: 10px; }
+
+.ui-page-theme-a label.switch-label:before { width: 100%; height: 100%; background: #462a18 border-radius: 9999em;  transition: background-color 0.25s ease; }
+.ui-page-theme-a label.switch-label:after { top: 3px; left: 3px; width: 15px; height: 15px; border-radius: 50%; background-color: #462a18; transition: left 0.25s ease; opacity:1; }
+/* When input is checked */
+.ui-page-theme-a label.switch-input:checked + .switch-label {
+  /* Switch Rail */
+  /* Switch Knob */
+}
+.ui-page-theme-a label.switch-input:checked + .switch-label:before {
+  background-color: #89c12d;
+}
+.ui-page-theme-a label.switch-input:checked + .switch-label:after {
+  left: 24px;
+}
+.switch label.switch-label.ui-checkbox-on::after { background-image: none !important; left:26px; }
+
+/***************************
+  MISC
+*****************************/
+.responsive { max-width: 100%; display: block; }
+.align-left { text-align: left; }
+.align-center { text-align: center; }
+.align-right { text-align: right; }
+
+/*****************************
+  Responsive
+******************************/
+@media screen and (max-width:900px) {
+    body { font-size: 14px; }
+    .login__wrap { margin-top: 0; padding: 4% 7%; }
+    button.btn-cafe, a.btn-cafe, a.btn-naranja, a.btn-verde { font-size: 20px; }
+    .login__wrap h2 { font-size: 2.6rem; margin-bottom: 55px; }
+    .ui-header h2 { font-size: 24px; }
+    a.header__link { font-size: 30px; line-height:30px; }
+    .ui-input-text input, .ui-input-search input, select { font-size: 14px; min-height: 1.6em; }
+    textarea#incidentes, .ui-page-theme-a .ui-btn { font-size: 14px; line-height: 1.2em; }
+    .ui-input-text, .ui-input-search { margin-bottom: 1px; min-height: 1.5em; }
+    .ui-mobile label { font-size: 12px; }
+    textarea#incidentes { height: 265px !important; }
+    .mascota__tipo__left { padding: 15px 10px; }
+    .mascota__tipo__left h3 { font-size: 1.5rem; }
+    #chienouchat.ui-page-theme-a .mascota__chienouchat label.ui-btn img { max-height: 60px; }
+    img.pet__gato { margin-top: 0; }
+    #chienouchat.ui-page-theme-a .mascota__chienouchat .ui-btn.ui-radio-off::after { width: 30px; height: 30px; }
+    #chienouchat.ui-page-theme-a .mascota__chienouchat .ui-btn.ui-radio-on::after { width: 25px; height: 25px; border: 5px solid #FFF; }
+    #chienouchat.ui-page-theme-a .mascota__chienouchat label.ui-btn img { margin-bottom: 20px; }
+    .row--conditions .ui-checkbox label.ui-btn { font-size: 12px; }
+    a.js-ok-chienouchat img { max-height: 170px; }
+    .mascota__tipo__left { margin-bottom: 10px; }
+    a.btn-aceptar2 { font-size: 26px; line-height: 35px; }
+    .row--activation label.ui-btn.ui-radio-off::after { width: 20px; height: 20px; bottom: -25px; }
+    .row--activation .ui-radio label.ui-btn.ui-radio-on::after { width: 20px; height: 20px; bottom: -25px; }
+    a.btn-grey { font-size: 17px; }
+    a.btn-grey span { font-size: 37px; line-height: 20px; }
+    .ui-page-theme-a .row--activation .ui-btn img { width: 80%; margin: auto; }
+    a.btn-aceptar, input.btn-aceptar { font-size: 30px; line-height: 40px; }
+    .ui-select { margin-top: .2em; margin-bottom: .2em; }
+    .preview-images-zone .preview-image .image-zone { height: 70px; }
+    .ui-page-theme-a .row--genre .ui-btn img { height: 40px; }
+    .ui-page-theme-a .row--activation input.js-radio { visibility: hidden;  }
+}

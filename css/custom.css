@@ -92,6 +92,15 @@ a.btn-aceptar2 { color:#ffda00 !important; font-size: 35px; width: 100%; margin:
 /**************************
   Chien ou chat
 ***************************/
+ul#filter-loja {
+    position: absolute; z-index: 99; background-color: #DDD; margin-top: 0; top: 55px;
+}
+ul#filter-loja li{ padding-top: 5px; padding-bottom: 5px; font-size: 13px; cursor: pointer; background-color: #EEE; }
+.ui-input-search.ui-shadow-inset { box-shadow: none !important; }
+.chienouchat_msg { color:#FF0000; }
+
+
+
 .mascota__perro { display: none; }
 .mascota__gato { display: none; }
 
@@ -163,6 +172,10 @@ img.pet__gato { height: 130px; margin-top: 20px;   }
 }
 .switch label.switch-label.ui-checkbox-on::after { background-image: none !important; left:26px; }
 
+
+
+
+
 /***************************
   MISC
 *****************************/
@@ -170,6 +183,9 @@ img.pet__gato { height: 130px; margin-top: 20px;   }
 .align-left { text-align: left; }
 .align-center { text-align: center; }
 .align-right { text-align: right; }
+
+
+
 
 /*****************************
   Responsive

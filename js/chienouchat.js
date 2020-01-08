@@ -75,6 +75,9 @@ $('.js-ok-chienouchat').on("click", function(e) {
 // Guarda los datos y a la mascota
 $('.js-ok-chienouchat2').on("click", function(e) {
     e.preventDefault();
+    $(".chienouchat_msg").html("Salvando, por favor espere");
+    jQuery(".js-ok-chienouchat2").addClass('disabled');
+
     chienouchat__recogedatos();
     
     // Guarda datos del usuario
@@ -105,8 +108,9 @@ $('.js-ok-chienouchat2').on("click", function(e) {
         if(data == "0") {
             guardarCallBack("repetido");    
         } else {
-            guardarCallBack("guardado");
+            guardarCallBack("guardado");             
         }
+        $(".chienouchat_msg").html("");
     }).error(function(request, error) {
         console.log( "status" + error );
         guardarCallBack("nointernet");
@@ -264,4 +268,14 @@ $('.conditionslabel a').bind("tap click", function( event, data ){
     $('.conditions__content').html(condiciones);
     $( "#conditionsPop" ).popup("open");
     
+});
+
+
+/***********************************
+  Loja
+**************************************/  
+$('#filter-loja').on("click", "li", function() {
+    $valor = $(this).html();
+    $(".ui-input-search input").val($valor);
+    $('#filter-loja').addClass("ui-screen-hidden");
 });

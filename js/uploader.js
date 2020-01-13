@@ -61,7 +61,7 @@ $(document).ready(function(){
             guardaractiviteCallBack(data);
         },
         error:function(){
-            $('#status').html('Images uploading failed, please try again.');
+            $('#status').html('Falha no upload das imagens. Tente novamente');
         }
     });
 });

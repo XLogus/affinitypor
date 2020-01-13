@@ -111,6 +111,7 @@ $('.js-ok-chienouchat2').on("click", function(e) {
             guardarCallBack("guardado");             
         }
         $(".chienouchat_msg").html("");
+        $("#chienouchatmagasin").val("");
     }).error(function(request, error) {
         console.log( "status" + error );
         guardarCallBack("nointernet");

@@ -140,7 +140,7 @@ function contactos__ver() {
     $(".contactos__listado tbody").html("");
     
     if (window.localStorage.getItem("contactos") === null) {
-        $(".contactos__listado tbody").append('<td colspan="8">No hay contactos</td>');
+        $(".contactos__listado tbody").append('<td colspan="8">Nenhum contato do feno</td>');
     } else {
         listado = JSON.parse(window.localStorage.getItem("contactos"));
         console.log(window.localStorage.getItem("contactos"));
@@ -173,16 +173,16 @@ function contactos__ver() {
 function sincronizacion__ver() {
     console.log("msg "+msg);
     if(msg == "guardado") {
-        $('#js-messages').html('<div role="alert" class="alert alert-success"><strong>Utilisateur enregistré</strong></div>');
+        $('#js-messages').html('<div role="alert" class="alert alert-success"><strong>Usuário registrado</strong></div>');
         msg = "";
     } else if(msg == "nointernet") {
-        $('#js-messages').html('<div role="alert" class="alert alert-danger"><strong>Utilisateur enregistré dans la mémoire interne.</strong></div>');
+        $('#js-messages').html('<div role="alert" class="alert alert-danger"><strong>Usuário registrado na memória interna.</strong></div>');
         msg = "";
     } else if(msg == "guardadoevento") {
-        $('#js-messages').html('<div role="alert" class="alert alert-success"><strong>Activité sauvegardée</strong></div>');
+        $('#js-messages').html('<div role="alert" class="alert alert-success"><strong>Atividade salva</strong></div>');
         msg = "";
     } else if(msg == "repetido") {
-        $('#js-messages').html('<div role="alert" class="alert alert-danger"><strong>Utilisateur répété</strong></div>');
+        $('#js-messages').html('<div role="alert" class="alert alert-danger"><strong>Usuário repetido</strong></div>');
         msg = "";
     } else {
         $('#js-messages').html('');
@@ -208,10 +208,10 @@ function sincronizacion__ver() {
 
 function sincronizacion__ejecutar() {
     if (window.localStorage.getItem("contactos") === null) {
-        $('.sync__wrap').html("Aucun utilisateur");
+        $('.sync__wrap').html("Nenhum usuário");
     } else {
         listado = JSON.parse(window.localStorage.getItem("contactos"));
-        $('.sync__wrap').html("Synchronisation, veuillez patienter");
+        $('.sync__wrap').html("Sincronização, aguarde");
         $.each(listado, function( index, value ) {
             $.ajax({
                 dataType: "json",
@@ -237,14 +237,14 @@ function sincronizacion__ejecutar() {
             }).error(function (request, error) {
                 //console.log("status" + error);
                 //guardarCallBack("nointernet");
-                $('.sync__wrap').html("Pas de connexion internet");
+                $('.sync__wrap').html("Sem conexão à internet");
             });
         });
         listado2 = JSON.parse(window.localStorage.getItem("contactos"));
         if(listado2.length <= 0) {
             $('.sync__wrap').html("Done");
         } else {
-            $('.sync__wrap').html(listado2.length + " utilisateurs non synchronisés. ");
+            $('.sync__wrap').html(listado2.length + " usuários não sincronizados. ");
         }
     }
 }

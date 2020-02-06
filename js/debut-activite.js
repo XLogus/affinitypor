@@ -97,7 +97,8 @@ $('.js-typea').on("change", function() {
             } else if(cual == "space tourer"){                
                 opciones += '<option value="Cascais Shopping">Cascais Shopping</option>';
                 opciones += '<option value="Almada Forum">Almada Forum</option>';
-                opciones += '<option value="Norte Shopping">Norte Shopping</option>';                
+                opciones += '<option value="Norte Shopping">Norte Shopping</option>';   
+				opciones += '<option value="Zu Braga Minho">Zu Braga Minho</option>'; 				
             } else if(cual == "carrito"){
                 opciones += '<option value="Exponor">Exponor</option>';
                 opciones += '<option value="Colombo">Colombo</option>';
